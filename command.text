@@ -42,3 +42,7 @@ migrate --path db/migration -database "postgresql://root:secret@localhost:5432/s
 
 SQL COMPAILER
 go install github.com/kyleconroy/sqlc/cmd/sqlc@latest
+
+sqlc init
+
+sqlc generate
