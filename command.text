@@ -38,3 +38,7 @@ MIGRATE COMMAND
 migrate create -ext sql -dir db/migration -seq init_schema
 
 migrate --path db/migration -database "postgresql://root:secret@localhost:5432/simple_bank?sslmode=disable" -verbose up
+
+
+SQL COMPAILER
+go install github.com/kyleconroy/sqlc/cmd/sqlc@latest
