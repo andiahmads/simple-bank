@@ -1,4 +1,6 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make: *** No rule to make target 'all'.  Stop.
+
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -6,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sat Jun 18 23:10:38 2022
+# Make data base, printed on Sat Jun 18 23:21:36 2022
 
 # Variables
 
@@ -71,7 +73,7 @@ DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-7aca57b3-d614-48af-81e5-d435f9410053.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-76c96bbe-32ea-41b5-8fee-8cd176f2c394.sock
 # environment
 LC_NAME = id_ID.UTF-8
 # environment
@@ -111,7 +113,7 @@ XDG_SESSION_DESKTOP = cinnamon
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 233745
+GIO_LAUNCHED_DESKTOP_FILE_PID = 251266
 # automatic
 %F = $(notdir $%)
 # environment
@@ -243,7 +245,7 @@ LC_ADDRESS = id_ID.UTF-8
 # environment
 LANG = C
 # environment
-VSCODE_PID = 233745
+VSCODE_PID = 251266
 # variable set hash-table stats:
 # Load=117/1024=11%, Rehash=0, Collisions=10/142=7%
 
@@ -280,14 +282,12 @@ all:
 
 .PHONY: postgres createdb dropdb migrateup migratedown sqlc test server
 #  Implicit rule search has not been done.
+ 
 #  Modification time never checked.
 #  File has not been updated.
 
 sqlc:
 #  Phony target (prerequisite of .PHONY).
- 
-make: *** No rule to make target 'all'.  Stop.
-
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
@@ -369,6 +369,6 @@ migratedown:
 # strcache performance: lookups = 51 / hit rate = 41%
 # hash-table stats:
 # Load=30/8192=0%, Rehash=0, Collisions=1/51=2%
-# Finished Make data base on Sat Jun 18 23:10:39 2022
+# Finished Make data base on Sat Jun 18 23:21:37 2022
 
  
