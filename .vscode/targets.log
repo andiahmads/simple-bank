@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sat Jun 18 13:05:26 2022
+# Make data base, printed on Sat Jun 18 23:10:38 2022
 
 # Variables
 
@@ -71,7 +71,7 @@ DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-c4396252-8761-4ee5-a307-9d55bcdd401a.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-7aca57b3-d614-48af-81e5-d435f9410053.sock
 # environment
 LC_NAME = id_ID.UTF-8
 # environment
@@ -111,7 +111,7 @@ XDG_SESSION_DESKTOP = cinnamon
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 100264
+GIO_LAUNCHED_DESKTOP_FILE_PID = 233745
 # automatic
 %F = $(notdir $%)
 # environment
@@ -243,7 +243,7 @@ LC_ADDRESS = id_ID.UTF-8
 # environment
 LANG = C
 # environment
-VSCODE_PID = 100264
+VSCODE_PID = 233745
 # variable set hash-table stats:
 # Load=117/1024=11%, Rehash=0, Collisions=10/142=7%
 
@@ -253,9 +253,9 @@ VSCODE_PID = 100264
 
 # Directories
 
-# . (device 2050, inode 5506034): 12 files, no impossibilities.
+# . (device 2050, inode 5506034): 16 files, no impossibilities.
 
-# 12 files, no impossibilities in 1 directories.
+# 16 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -278,28 +278,36 @@ all:
 #  File does not exist.
 #  File has not been updated.
 
-.PHONY: postgres createdb dropdb migrateup migratedown sqlc test
+.PHONY: postgres createdb dropdb migrateup migratedown sqlc test server
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
 sqlc:
 #  Phony target (prerequisite of .PHONY).
-#  Implicit rule search has not been done.
-#  File does not exist.
-#  File has not been updated.
  
 make: *** No rule to make target 'all'.  Stop.
 
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
 #  recipe to execute (from 'Makefile', line 17):
 	sqlc generate
 
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-17 11:27:34.070854164
+#  Last modified 2022-06-18 17:34:53.658199315
 #  File has been updated.
 #  Successfully updated.
+
+server:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 23):
+	go run main.go
 
 test:
 #  Phony target (prerequisite of .PHONY).
@@ -348,19 +356,19 @@ migratedown:
 	migrate --path db/migration -database "postgresql://root:secret@localhost:5432/simple_bank?sslmode=disable" -verbose down 
 
 # files hash-table stats:
-# Load=12/1024=1%, Rehash=0, Collisions=0/29=0%
+# Load=13/1024=1%, Rehash=0, Collisions=0/31=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 25 / storage = 201 B / avg = 8 B
-# current buf: size = 8162 B / used = 201 B / count = 25 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 30 / storage = 236 B / avg = 7 B
+# current buf: size = 8162 B / used = 236 B / count = 30 / avg = 7 B
 
-# strcache performance: lookups = 44 / hit rate = 43%
+# strcache performance: lookups = 51 / hit rate = 41%
 # hash-table stats:
-# Load=25/8192=0%, Rehash=0, Collisions=1/44=2%
-# Finished Make data base on Sat Jun 18 13:05:26 2022
+# Load=30/8192=0%, Rehash=0, Collisions=1/51=2%
+# Finished Make data base on Sat Jun 18 23:10:39 2022
 
  
