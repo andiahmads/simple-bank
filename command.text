@@ -33,7 +33,6 @@ createdb --username=root --owner=root simple_bank
 
 psql simple_bank
 
-
 MIGRATE COMMAND
 migrate create -ext sql -dir db/migration -seq init_schema
 
