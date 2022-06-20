@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sat Jun 18 23:21:36 2022
+# Make data base, printed on Tue Jun 21 06:07:00 2022
 
 # Variables
 
@@ -73,7 +73,7 @@ DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-76c96bbe-32ea-41b5-8fee-8cd176f2c394.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-c5db384e-4f6f-4a7e-90da-b2460ac8ffbd.sock
 # environment
 LC_NAME = id_ID.UTF-8
 # environment
@@ -109,11 +109,13 @@ XDG_GREETER_DATA_DIR = /var/lib/lightdm-data/domv
 # environment
 LS_COLORS = 
 # environment
+INSIDE_NEMO_PYTHON = 
+# environment
 XDG_SESSION_DESKTOP = cinnamon
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 251266
+GIO_LAUNCHED_DESKTOP_FILE_PID = 358316
 # automatic
 %F = $(notdir $%)
 # environment
@@ -245,9 +247,9 @@ LC_ADDRESS = id_ID.UTF-8
 # environment
 LANG = C
 # environment
-VSCODE_PID = 251266
+VSCODE_PID = 358316
 # variable set hash-table stats:
-# Load=117/1024=11%, Rehash=0, Collisions=10/142=7%
+# Load=118/1024=12%, Rehash=0, Collisions=10/143=7%
 
 # Pattern-specific Variable Values
 
@@ -280,9 +282,8 @@ all:
 #  File does not exist.
 #  File has not been updated.
 
-.PHONY: postgres createdb dropdb migrateup migratedown sqlc test server
+.PHONY: postgres createdb dropdb migrateup migratedown sqlc test server mock
 #  Implicit rule search has not been done.
- 
 #  Modification time never checked.
 #  File has not been updated.
 
@@ -295,9 +296,10 @@ sqlc:
 	sqlc generate
 
 # Not a target:
+ 
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-18 17:34:53.658199315
+#  Last modified 2022-06-19 13:44:55.237471979
 #  File has been updated.
 #  Successfully updated.
 
@@ -355,20 +357,28 @@ migratedown:
 #  recipe to execute (from 'Makefile', line 14):
 	migrate --path db/migration -database "postgresql://root:secret@localhost:5432/simple_bank?sslmode=disable" -verbose down 
 
+mock:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 26):
+	mockgen -destination db/mock/store.go github.com/andiahmads/simple-bank/db/sqlc Store
+
 # files hash-table stats:
-# Load=13/1024=1%, Rehash=0, Collisions=0/31=0%
+# Load=14/1024=1%, Rehash=0, Collisions=0/33=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 30 / storage = 236 B / avg = 7 B
-# current buf: size = 8162 B / used = 236 B / count = 30 / avg = 7 B
+# strcache buffers: 1 (0) / strings = 31 / storage = 241 B / avg = 7 B
+# current buf: size = 8162 B / used = 241 B / count = 31 / avg = 7 B
 
-# strcache performance: lookups = 51 / hit rate = 41%
+# strcache performance: lookups = 54 / hit rate = 42%
 # hash-table stats:
-# Load=30/8192=0%, Rehash=0, Collisions=1/51=2%
-# Finished Make data base on Sat Jun 18 23:21:37 2022
+# Load=31/8192=0%, Rehash=0, Collisions=1/54=2%
+# Finished Make data base on Tue Jun 21 06:07:00 2022
 
  
