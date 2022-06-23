@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Jun 21 06:07:00 2022
+# Make data base, printed on Thu Jun 23 10:30:06 2022
 
 # Variables
 
@@ -73,8 +73,6 @@ DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-c5db384e-4f6f-4a7e-90da-b2460ac8ffbd.sock
-# environment
 LC_NAME = id_ID.UTF-8
 # environment
 VSCODE_CWD = /home/domv
@@ -93,7 +91,7 @@ GJS_DEBUG_OUTPUT = stderr
 # environment
 LSCOLORS = Gxfxcxdxbxegedabagacad
 # environment
-SESSION_MANAGER = local/domv:@/tmp/.ICE-unix/1448,unix/domv:/tmp/.ICE-unix/1448
+SESSION_MANAGER = local/domv:@/tmp/.ICE-unix/1483,unix/domv:/tmp/.ICE-unix/1483
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
@@ -109,13 +107,11 @@ XDG_GREETER_DATA_DIR = /var/lib/lightdm-data/domv
 # environment
 LS_COLORS = 
 # environment
-INSIDE_NEMO_PYTHON = 
-# environment
 XDG_SESSION_DESKTOP = cinnamon
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 358316
+GIO_LAUNCHED_DESKTOP_FILE_PID = 3038
 # automatic
 %F = $(notdir $%)
 # environment
@@ -133,7 +129,7 @@ QT_QPA_PLATFORMTHEME = qt5ct
 # environment
 XDG_SEAT = seat0
 # environment
-SSH_AGENT_PID = 1520
+SSH_AGENT_PID = 1564
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = X-Cinnamon
 # environment
@@ -143,7 +139,7 @@ GOMODCACHE = /home/domv/Code/go/pkg/mod
 # environment
 HOME = /home/domv
 # environment
-VSCODE_CODE_CACHE_PATH = /home/domv/.config/Code - Insiders/CachedData/fbf1cf3832d43088e27837dbb68d24ab65a098c1
+VSCODE_CODE_CACHE_PATH = /home/domv/.config/Code - Insiders/CachedData/f361c5b71d6676cfc6de97cdb1cc40b08bf7d994
 # environment
 LOGNAME = domv
 # environment
@@ -226,6 +222,7 @@ LC_NUMERIC = id_ID.UTF-8
 LC_MEASUREMENT = id_ID.UTF-8
 # environment
 PAGER = less
+ 
 # environment
 LC_ALL = C
 # environment
@@ -247,9 +244,9 @@ LC_ADDRESS = id_ID.UTF-8
 # environment
 LANG = C
 # environment
-VSCODE_PID = 358316
+VSCODE_PID = 3038
 # variable set hash-table stats:
-# Load=118/1024=12%, Rehash=0, Collisions=10/143=7%
+# Load=116/1024=11%, Rehash=0, Collisions=10/141=7%
 
 # Pattern-specific Variable Values
 
@@ -282,7 +279,15 @@ all:
 #  File does not exist.
 #  File has not been updated.
 
-.PHONY: postgres createdb dropdb migrateup migratedown sqlc test server mock
+migratedown1:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 22):
+	migrate --path db/migration -database "postgresql://root:secret@localhost:5432/simple_bank?sslmode=disable" -verbose down 1
+
+.PHONY: postgres createdb dropdb migrateup migratedown migrateup1 migratedown1 sqlc test server mock migrate-user
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -292,14 +297,20 @@ sqlc:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 17):
+#  recipe to execute (from 'Makefile', line 26):
 	sqlc generate
 
+generate-migrate-user:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 38):
+	migrate create -ext sql -dir db/migration -seq add_users
+
 # Not a target:
- 
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-19 13:44:55.237471979
+#  Last modified 2022-06-21 08:53:52.802003899
 #  File has been updated.
 #  Successfully updated.
 
@@ -308,7 +319,7 @@ server:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 23):
+#  recipe to execute (from 'Makefile', line 32):
 	go run main.go
 
 test:
@@ -316,13 +327,14 @@ test:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 20):
+#  recipe to execute (from 'Makefile', line 29):
 	go test -v -cover ./...
 
 createdb:
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
+ 
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 5):
 	docker exec -it postgres12 createdb --username=root --owner=root simple_bank
@@ -349,12 +361,26 @@ migrateup:
 #  recipe to execute (from 'Makefile', line 11):
 	migrate --path db/migration -database "postgresql://root:secret@localhost:5432/simple_bank?sslmode=disable" -verbose up 
 
+migrate-user:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+migrateup1:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 15):
+	migrate --path db/migration -database "postgresql://root:secret@localhost:5432/simple_bank?sslmode=disable" -verbose up 1 
+
 migratedown:
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 14):
+#  recipe to execute (from 'Makefile', line 19):
 	migrate --path db/migration -database "postgresql://root:secret@localhost:5432/simple_bank?sslmode=disable" -verbose down 
 
 mock:
@@ -362,23 +388,23 @@ mock:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 26):
+#  recipe to execute (from 'Makefile', line 35):
 	mockgen -destination db/mock/store.go github.com/andiahmads/simple-bank/db/sqlc Store
 
 # files hash-table stats:
-# Load=14/1024=1%, Rehash=0, Collisions=0/33=0%
+# Load=18/1024=2%, Rehash=0, Collisions=0/40=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 31 / storage = 241 B / avg = 7 B
-# current buf: size = 8162 B / used = 241 B / count = 31 / avg = 7 B
+# strcache buffers: 1 (0) / strings = 35 / storage = 300 B / avg = 8 B
+# current buf: size = 8162 B / used = 300 B / count = 35 / avg = 8 B
 
-# strcache performance: lookups = 54 / hit rate = 42%
+# strcache performance: lookups = 63 / hit rate = 44%
 # hash-table stats:
-# Load=31/8192=0%, Rehash=0, Collisions=1/54=2%
-# Finished Make data base on Tue Jun 21 06:07:00 2022
+# Load=35/8192=0%, Rehash=0, Collisions=1/63=2%
+# Finished Make data base on Thu Jun 23 10:30:06 2022
 
  
