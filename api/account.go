@@ -2,6 +2,7 @@ package api
 
 import (
 	"database/sql"
+	"fmt"
 	"net/http"
 
 	db "github.com/andiahmads/simple-bank/db/sqlc"
@@ -84,6 +85,7 @@ func (server *Server) listAccount(ctx *gin.Context) {
 		Limit:  req.PageSize,
 		Offset: (req.PageID - 1) * req.PageSize,
 	}
+	fmt.Println(arg.Offset)
 	account, err := server.store.ListAccounts(ctx, arg)
 	if err != nil {
 		ctx.JSON(http.StatusInternalServerError, errorResponse(err))
