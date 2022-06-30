@@ -1,6 +1,4 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
-make: *** No rule to make target 'all'.  Stop.
-
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -8,7 +6,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Jun 23 10:30:06 2022
+# Make data base, printed on Wed Jun 29 15:30:14 2022
 
 # Variables
 
@@ -24,8 +22,6 @@ DESKTOP_SESSION = cinnamon
 XDG_SESSION_CLASS = user
 # environment
 XDG_SESSION_TYPE = x11
-# environment
-VSCODE_LOG_NATIVE = false
 # environment
 GTK3_MODULES = xapp-gtk3-module
 # automatic
@@ -71,8 +67,6 @@ VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
 DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # environment
-VSCODE_VERBOSE_LOGGING = true
-# environment
 LC_NAME = id_ID.UTF-8
 # environment
 VSCODE_CWD = /home/domv
@@ -91,13 +85,11 @@ GJS_DEBUG_OUTPUT = stderr
 # environment
 LSCOLORS = Gxfxcxdxbxegedabagacad
 # environment
-SESSION_MANAGER = local/domv:@/tmp/.ICE-unix/1483,unix/domv:/tmp/.ICE-unix/1483
+SESSION_MANAGER = local/domv:@/tmp/.ICE-unix/2018,unix/domv:/tmp/.ICE-unix/2018
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
 GOPATH = /home/domv/Code/go
-# environment
-VSCODE_LOG_STACK = true
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # default
@@ -111,15 +103,13 @@ XDG_SESSION_DESKTOP = cinnamon
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 3038
+GIO_LAUNCHED_DESKTOP_FILE_PID = 11133
 # automatic
 %F = $(notdir $%)
 # environment
 GOBIN = /home/domv/Code/go/bin
 # environment
 DISPLAY = :0
-# environment
-VSCODE_PIPE_LOGGING = true
 # environment
 PWD = /home/domv/Code/go/src/simple-bank
 # environment
@@ -129,7 +119,7 @@ QT_QPA_PLATFORMTHEME = qt5ct
 # environment
 XDG_SEAT = seat0
 # environment
-SSH_AGENT_PID = 1564
+SSH_AGENT_PID = 2088
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = X-Cinnamon
 # environment
@@ -139,7 +129,7 @@ GOMODCACHE = /home/domv/Code/go/pkg/mod
 # environment
 HOME = /home/domv
 # environment
-VSCODE_CODE_CACHE_PATH = /home/domv/.config/Code - Insiders/CachedData/f361c5b71d6676cfc6de97cdb1cc40b08bf7d994
+VSCODE_CODE_CACHE_PATH = /home/domv/.config/Code - Insiders/CachedData/e7751367f79f327b8103bee33a07c16817a2c7cd
 # environment
 LOGNAME = domv
 # environment
@@ -222,7 +212,6 @@ LC_NUMERIC = id_ID.UTF-8
 LC_MEASUREMENT = id_ID.UTF-8
 # environment
 PAGER = less
- 
 # environment
 LC_ALL = C
 # environment
@@ -244,9 +233,9 @@ LC_ADDRESS = id_ID.UTF-8
 # environment
 LANG = C
 # environment
-VSCODE_PID = 3038
+VSCODE_PID = 11133
 # variable set hash-table stats:
-# Load=116/1024=11%, Rehash=0, Collisions=10/141=7%
+# Load=112/1024=11%, Rehash=0, Collisions=10/137=7%
 
 # Pattern-specific Variable Values
 
@@ -254,9 +243,9 @@ VSCODE_PID = 3038
 
 # Directories
 
-# . (device 2050, inode 5506034): 16 files, no impossibilities.
+# . (device 2050, inode 5506034): 17 files, no impossibilities.
 
-# 16 files, no impossibilities in 1 directories.
+# 17 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -290,6 +279,9 @@ migratedown1:
 .PHONY: postgres createdb dropdb migrateup migratedown migrateup1 migratedown1 sqlc test server mock migrate-user
 #  Implicit rule search has not been done.
 #  Modification time never checked.
+ 
+make: *** No rule to make target 'all'.  Stop.
+
 #  File has not been updated.
 
 sqlc:
@@ -334,7 +326,6 @@ createdb:
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
- 
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 5):
 	docker exec -it postgres12 createdb --username=root --owner=root simple_bank
@@ -399,12 +390,12 @@ mock:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 35 / storage = 300 B / avg = 8 B
-# current buf: size = 8162 B / used = 300 B / count = 35 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 36 / storage = 306 B / avg = 8 B
+# current buf: size = 8162 B / used = 306 B / count = 36 / avg = 8 B
 
-# strcache performance: lookups = 63 / hit rate = 44%
+# strcache performance: lookups = 64 / hit rate = 43%
 # hash-table stats:
-# Load=35/8192=0%, Rehash=0, Collisions=1/63=2%
-# Finished Make data base on Thu Jun 23 10:30:06 2022
+# Load=36/8192=0%, Rehash=0, Collisions=1/64=2%
+# Finished Make data base on Wed Jun 29 15:30:14 2022
 
  
