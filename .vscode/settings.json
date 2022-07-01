@@ -1,3 +1,6 @@
 {
-    "makefile.extensionOutputFolder": "./.vscode"
+    "makefile.extensionOutputFolder": "./.vscode",
+    "yaml.schemas": {
+        "https://json.schemastore.org/github-workflow.json": "file:///home/domv/Code/go/src/simple-bank/.github/workflows/deploy.yml"
+    }
 }
