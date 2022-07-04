@@ -10,6 +10,9 @@ dropdb:
 migrateup:
 	migrate --path db/migration -database "postgresql://root:secret@localhost:5432/simple_bank?sslmode=disable" -verbose up 
 
+aws-migrateup:
+	migrate --path db/migration -database "postgresql://root:V27NOI!LE&Hf9@simple-bank.cwkc7me9fnj5.ap-southeast-3.rds.amazonaws.com:5432/simple_bank" -verbose up 
+
 
 migrateup1:
 	migrate --path db/migration -database "postgresql://root:secret@localhost:5432/simple_bank?sslmode=disable" -verbose up 1 
@@ -37,5 +40,5 @@ mock:
 generate-migrate-user:
 	migrate create -ext sql -dir db/migration -seq add_users
 
-.PHONY: postgres createdb dropdb migrateup migratedown migrateup1 migratedown1 sqlc test server mock migrate-user
+.PHONY: postgres createdb dropdb migrateup migratedown migrateup1 migratedown1 sqlc test server mock migrate-user aws-migrateup
 
